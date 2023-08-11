@@ -1,26 +1,35 @@
 "use client";
 
-import Button from "./button";
-
-import { add } from "@/actions/mutation";
 import { Product } from "@/types";
+import { Add, Delete } from "./button";
+import { add, del } from "@/actions/mutation";
 
-export default function FormHandle() {
+export function FormHandle() {
+    const formAdd = async (e: FormData) => {
+        const ITEM = e.get("ITEM") as string;
+        const PRICE = e.get("PRICE") as number | null;
 
-    const formHandler = async (e: FormData) => {
-        const I: Product["I"] | null = e.get("I") as string;
-        const P: Product["P"] | null = e.get("P") as number | null;
+        if (!ITEM || !PRICE) return;
 
-        if (!I || !P) return;
-
-        await add({ I, P } as Product);
+        await add({ ITEM, PRICE } as Product);
     }
 
     return (
-        <form action={formHandler} className="grid grid-cols-1 gap-3">
-            <input name="I" className="text-gray-950" type="text" />
-            <input name="P" className="text-gray-950" type="number" />
-            <Button className="bg-red-600" />
+        <form action={formAdd} className="grid grid-cols-1 gap-3">
+            <input name="ITEM" className="text-gray-950" type="text" />
+            <input name="PRICE" className="text-gray-950" step=".01" type="number" />
+            <Add className="bg-green-600" />
+        </form>
+    );
+}
+
+
+export function FormDelete({ ID }: Product) {
+    if (!ID) return;
+
+    return (
+        <form action={() => del({ ID })} className="flex h-0 relative w-[100%] justify-end">
+            <Delete />
         </form>
     );
 }
