@@ -8,8 +8,12 @@ import { Button } from "@/components/ui/button";
 export function Add() {
     const { pending } = useFormStatus();
     return <Button
-        disabled={pending}>
-        {pending ? (<><Loader2 className="animate-spin" />Add New</>) : (<><Plus />Add New</>)}
+        variant="secondary"
+        size="lg"
+        disabled={pending}
+        className="gap-1"
+    >
+        {pending ? (<><Loader2 className="text-green-400 animate-spin" />Add New</>) : (<><Plus />Add New</>)}
     </Button>
 }
 
@@ -17,7 +21,10 @@ export function Delete() {
     const { pending } = useFormStatus();
 
     return <Button
+        variant="ghost"
+        size="icon"
+        className="w-6 h-6 p-1"
         disabled={pending}>
-        {pending ? <Loader2 className="text-red-600 animate-spin" /> : <Trash2 className="text-red-600" />}
+        {pending ? <Loader2 className="text-red-400 animate-spin" /> : <Trash2 />}
     </Button>
 }
