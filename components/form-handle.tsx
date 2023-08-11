@@ -18,8 +18,8 @@ export function FormHandle() {
 
     return (
         <form action={formAdd} className="grid grid-cols-1 w-[100%] gap-3 md:w-[50%]">
-            <Input placeholder="ITEM" name="ITEM" type="text" />
-            <Input placeholder="PRICE" name="PRICE" step=".01" type="number" />
+            <Input placeholder="ITEM" name="ITEM" type="text" maxLength={8} />
+            <Input placeholder="PRICE" name="PRICE" step=".01" max={1000000} type="number" />
             <Add />
         </form>
     );
