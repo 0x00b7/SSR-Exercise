@@ -17,7 +17,7 @@ export function FormHandle() {
     }
 
     return (
-        <form action={formAdd} className="grid grid-cols-1 w-[100%] gap-3">
+        <form action={formAdd} className="grid grid-cols-1 w-[100%] gap-3 md:w-[50%]">
             <Input placeholder="ITEM" name="ITEM" type="text" />
             <Input placeholder="PRICE" name="PRICE" step=".01" type="number" />
             <Add />
