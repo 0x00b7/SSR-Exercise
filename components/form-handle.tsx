@@ -1,10 +1,12 @@
-"use client";
+"use client"
 
 import { Product } from "@/types";
-import { Add, Delete } from "./button";
+import { Add, Delete } from "@/components/form-button";
 import { add, del } from "@/actions/mutation";
+import { Input } from "@/components/ui/input";
 
 export function FormHandle() {
+
     const formAdd = async (e: FormData) => {
         const ITEM = e.get("ITEM") as string;
         const PRICE = e.get("PRICE") as number | null;
@@ -16,9 +18,9 @@ export function FormHandle() {
 
     return (
         <form action={formAdd} className="grid grid-cols-1 gap-3">
-            <input name="ITEM" className="text-gray-950 p-2 rounded-md" type="text" />
-            <input name="PRICE" className="text-gray-950 p-2 rounded-md" step=".01" type="number" />
-            <Add className="bg-green-600" />
+            <Input name="ITEM" type="text" />
+            <Input name="PRICE" step=".01" type="number" />
+            <Add />
         </form>
     );
 }
