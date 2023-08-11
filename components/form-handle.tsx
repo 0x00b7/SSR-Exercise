@@ -16,8 +16,8 @@ export function FormHandle() {
 
     return (
         <form action={formAdd} className="grid grid-cols-1 gap-3">
-            <input name="ITEM" className="text-gray-950" type="text" />
-            <input name="PRICE" className="text-gray-950" step=".01" type="number" />
+            <input name="ITEM" className="text-gray-950 p-2 rounded-md" type="text" />
+            <input name="PRICE" className="text-gray-950 p-2 rounded-md" step=".01" type="number" />
             <Add className="bg-green-600" />
         </form>
     );
