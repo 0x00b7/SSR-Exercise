@@ -11,7 +11,7 @@ export default async function Home() {
     <main className="flex flex-col w-[100%] place-items-center p-4 gap-6">
       <FormHandle />
       <div className="grid gap-2 w-[100%] sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-        {res.map((DATA: Product) => (
+        {res.reverse().map((DATA: Product) => (
           <div key={DATA.ID} className="flex flex-col items-center w-[100%] p-2 border-2 rounded-lg">
             <FormDelete ID={DATA.ID!} />
             <h1 className="text-2xl font-bold">{DATA.ITEM}</h1>
